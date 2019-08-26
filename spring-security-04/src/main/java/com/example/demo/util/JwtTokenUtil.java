@@ -15,7 +15,6 @@ import java.util.Map;
 
 /**
  * JwtToken生成的工具类
- * Created by macro on 2018/4/26.
  */
 @Component
 public class JwtTokenUtil {

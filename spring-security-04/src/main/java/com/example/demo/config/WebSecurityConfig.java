@@ -22,11 +22,11 @@ import org.springframework.stereotype.Component;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+   /* @Autowired
     private GoAccessDeniedHandler accessDeniedHandler;
 
     @Autowired
-    private GoAuthenticationEntryPoint entryPoint;
+    private GoAuthenticationEntryPoint entryPoint;*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,9 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/hello").hasRole("superadmin") // 只有superadmin 角色的用户才能访问
                 .anyRequest().authenticated();
 
-        http.exceptionHandling()
+        /*http.exceptionHandling()
                 .accessDeniedHandler(accessDeniedHandler)// 用户没有访问权限处理器
-                .authenticationEntryPoint(entryPoint);// 用户没有登录处理器
+                .authenticationEntryPoint(entryPoint);// 用户没有登录处理器*/
 
         http.addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
