@@ -3,6 +3,7 @@ package com.example.security.configuration;
 import com.example.security.web.FilterChainProxy;
 import com.example.security.web.HttpSecurity;
 import com.example.security.web.SecurityFilterChain;
+import com.example.security.web.WebSecurity;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean;
@@ -26,20 +27,16 @@ public class WebSecurityAutoConfiguration  {
     @Bean("springSecurityFilterChain")
     public Filter filterChainProxy(ConfigurableListableBeanFactory beanFactory) {
 
-        List<SecurityFilterChain> securityFilterChains = new ArrayList<>();
-
         // 从 Spring 容器中获取类型为 WebSecurityConfigurationAdapter 的配置类
         List<WebSecurityConfigurationAdapter> webSecurityConfigurers = getWebSecurityConfigurationAdapters(beanFactory);
 
-        // 执行  WebSecurityConfigurationAdapter 的 configure 方法
-        for (WebSecurityConfigurationAdapter webSecurityConfigurer : webSecurityConfigurers) {
-            HttpSecurity httpSecurity = new HttpSecurity();
-            webSecurityConfigurer.configure(httpSecurity);
-            SecurityFilterChain securityFilterChain = httpSecurity.build();
-            securityFilterChains.add(securityFilterChain);
-        }
+        WebSecurity webSecurity = new WebSecurity();
 
-        return new FilterChainProxy(securityFilterChains);
+        for (WebSecurityConfigurationAdapter webSecurityConfigurer : webSecurityConfigurers) {
+            webSecurity.apply(webSecurityConfigurer);
+        }
+        // 构建 FilterChainProxy 对象
+        return webSecurity.build();
     }
 
     private List<WebSecurityConfigurationAdapter> getWebSecurityConfigurationAdapters(ConfigurableListableBeanFactory beanFactory) {
