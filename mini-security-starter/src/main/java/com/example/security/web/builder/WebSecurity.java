@@ -1,6 +1,8 @@
-package com.example.security.web;
+package com.example.security.web.builder;
 
 import com.example.security.configuration.WebSecurityConfigurationAdapter;
+import com.example.security.web.FilterChainProxy;
+import com.example.security.web.SecurityFilterChain;
 
 import java.util.ArrayList;
 import java.util.List;

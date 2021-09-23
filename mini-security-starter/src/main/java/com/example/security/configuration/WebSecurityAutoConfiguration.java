@@ -1,9 +1,6 @@
 package com.example.security.configuration;
 
-import com.example.security.web.FilterChainProxy;
-import com.example.security.web.HttpSecurity;
-import com.example.security.web.SecurityFilterChain;
-import com.example.security.web.WebSecurity;
+import com.example.security.web.builder.WebSecurity;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean;

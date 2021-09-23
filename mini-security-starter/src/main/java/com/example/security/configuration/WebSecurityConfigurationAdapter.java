@@ -1,6 +1,6 @@
 package com.example.security.configuration;
 
-import com.example.security.web.HttpSecurity;
+import com.example.security.web.builder.HttpSecurity;
 import org.springframework.context.annotation.Configuration;
 
 /**

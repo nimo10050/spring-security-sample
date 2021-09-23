@@ -1,7 +1,9 @@
-package com.example.security.web;
+package com.example.security.web.builder;
 
 import com.example.security.filter.BasicAuthenticationFilter;
 import com.example.security.filter.UsernamePasswordAuthenticationFilter;
+import com.example.security.web.DefaultSecurityFilterChain;
+import com.example.security.web.SecurityFilterChain;
 
 import javax.servlet.Filter;
 import java.util.ArrayList;
