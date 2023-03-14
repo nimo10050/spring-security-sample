@@ -1,0 +1,50 @@
+{
+  "output": {
+    "result": [
+      {
+        "jr_id": "ab83c5a3-0c29-416e-8e55-e7d124f38f12",
+        "rule_id": "520000202107291432061000051162",
+        "rule_name": "限儿童_事前",
+        "vola_cont": "注射用阿莫西林钠/注射用阿莫西林钠限儿童报销，该患者本次就诊不符合开具条件",
+        "patn_id": "11078881",
+        "mdtrt_id": "11078881",
+        "vola_amt": 1.3,
+        "vola_amt_stas": "1",
+        "sev_deg": "1",
+        "vola_evid": "地市医保药品目录中 医保支付范围的描述。",
+        "vola_bhvr_type": "2"
+      },
+      {
+        "jr_id": "bc4ffeca-ee75-4268-a74b-082c9d745b6f",
+        "rule_id": "520000202107291432061000051162",
+        "rule_name": "限儿童_事前",
+        "vola_cont": "健胃消食片/健胃消食片限儿童报销，该患者本次就诊不符合开具条件",
+        "patn_id": "11078881",
+        "mdtrt_id": "11078881",
+        "judge_result_detail_dtos": [
+          {
+            "jrd_id": "07d26334-c9be-470a-83b7-4cf06e542816",
+            "patn_id": "11078881",
+            "mdtrt_id": "11078881",
+            "rx_id": "100688331",
+            "vola_item_type": "1",
+            "vola_amt": null
+          }
+        ],
+        "vola_amt": 1.3,
+        "vola_amt_stas": "1",
+        "sev_deg": "1",
+        "vola_evid": "地市医保药品目录中 医保支付范围的描述。",
+        "vola_bhvr_type": "2"
+      }
+    ]
+  },
+  "infcode": 0,
+  "inf_refmsgid": "520200202108251424030001751826",
+  "refmsg_time": null,
+  "respond_time": null,
+  "err_msg": null,
+  "warn_msg": null,
+  "signtype": null,
+  "cainfo": null
+}

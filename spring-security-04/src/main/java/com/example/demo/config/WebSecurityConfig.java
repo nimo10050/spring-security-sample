@@ -1,10 +1,7 @@
 package com.example.demo.config;
 
 import com.example.demo.config.filter.JwtAuthenticationTokenFilter;
-import com.example.demo.config.handler.GoAccessDeniedHandler;
-import com.example.demo.config.handler.GoAuthenticationEntryPoint;
 import com.example.demo.config.service.UserDetailServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -33,11 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();// 必须有, 不然会 403 forbidden
 
-        /*http.formLogin()
+        http.formLogin()
                 .loginPage("/loginPage.html")// 自定义登录页
-                .loginProcessingUrl("/form/login")// 自定义登录 action, 名字随便起
-                .successHandler(successHandler)// 自定义登录成功处理类
-                .failureHandler(failureHandler);// 自定义登录失败处理类*/
+                .loginProcessingUrl("/form/login");// 自定义登录 action, 名字随便起
 
         // 访问 "/form/login", "/loginPage.html"   放行
         http.authorizeRequests().antMatchers("/user/userInfo", "/user/login", "/form/login", "/loginPage.html").permitAll()

@@ -1,10 +1,10 @@
 package com.example.demo.config;
 
 import com.example.demo.config.handler.GoAccessDeniedHandler;
-import com.example.demo.config.handler.GoAuthenticationEntryPoint;
 import com.example.demo.config.handler.GoAuthenticationFailureHandler;
 import com.example.demo.config.handler.GoAuthenticationSuccessHandler;
 import com.example.demo.config.service.UserDetailServiceImpl;
+import com.example.demo.config.handler.GoAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -9,7 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.*;
+import java.io.IOException;
 
 @Component
 @EnableWebSecurity
@@ -20,15 +24,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();// 必须有, 不然会 403 forbidden
 
-        http.formLogin()
-                .loginPage("/loginPage.html")// 自定义登录页
-                .loginProcessingUrl("/form/login");// 自定义登录 action, 名字随便起
-                // passwordParameter("password") 配置 form 表单 密码的 name 属性值
-                // usernameParameter("username") 配置 form 表单 用户名的 name 属性值
-
         // 访问 "/form/login", "/loginPage.html"   放行
-        http.authorizeRequests().antMatchers("/form/login", "/loginPage.html").permitAll()
-                .anyRequest().authenticated();
+        http.antMatcher("/api/**").authorizeRequests().antMatchers("/hello").authenticated();
+        //http.httpBasic();
+        //http.formLogin();
+        http.addFilterAt(new Filter() {
+            @Override
+            public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+            }
+        }, UsernamePasswordAuthenticationFilter.class);
     }
 
     /**
